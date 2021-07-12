@@ -1,0 +1,28 @@
+<h1>Загадайте двухзначное число:</h1>
+<a href="{% url 'guesses-medium' %}"><button><h3>Загадал</h3></button></a>
+<br>
+<br>
+
+<h3>История введённых пользователем чисел:</h3>
+  <table class="table">
+        <thead>
+            <tr>
+                <th>Число</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for element in history %}
+                <tr>
+                    <td>
+                         {{ element.number }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+  </table>
+
+<h3>Текущее значение достоверности экстрасенса.</h3>
+{% for element in mediums %}
+{{ element.name }}
+{{ element.level }}
+{% endfor %}

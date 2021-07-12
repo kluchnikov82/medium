@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Догадки экстрасенсов:</h1>
+          <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Имя экстрасенса</th>
+                            <th>Догадка1</th>
+                            <th>Догадка2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for element in mediums %}
+                            <tr>
+                                <td>
+                                     {{ element.name }}
+                                </td>
+                                <td>
+                                     {{ element.guess1 }}
+                                </td>
+                                <td>
+                                     {{ element.guess2 }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+          </table>
+
+
+<br>
+<br>
+<br>
+
+ <form class="form-horizontal" method="post">{% csrf_token %}
+
+                            <div class="form-group">
+                                <div class="col-lg-4">
+                                    <label>Введите загаданное число:</label>
+                                    <input type="text" name="number" class="form-control"
+                                        value="{{ number }}"
+                                    >
+                                </div>
+                            </div>
+
+     <div class="text-left">
+            <button type="submit" class="btn btn-primary btn-lg">Отправить на сервер</button>
+     </div>
+
+ </form>
+
+{% endblock %}
