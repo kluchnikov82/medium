@@ -15,8 +15,12 @@ def GetGuessesMedium(request):
     Medium.name = "Экстрасенс №1"
     Medium.guess1 = random.randint(1, 99)
     Medium.guess2 = random.randint(1, 99)
-    element = Medium.objects.order_by("-id")[:1]
-    level = element[0].level
+
+    try:
+        element = Medium.objects.order_by("-id")[:1]
+        level = element[0].level
+    except Exception as e:
+        level = 0
     Medium.objects.create(name=Medium.name, guess1=Medium.guess1, guess2=Medium.guess2, level=level)
 
     Medium.name = "Экстрасенс №2"
