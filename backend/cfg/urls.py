@@ -22,4 +22,5 @@ urlpatterns = [
 
 urlpatterns += [
     path('api/', include('guess.urls')),
+    path('api/', include('accounts.urls')),
 ]

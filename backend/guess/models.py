@@ -11,11 +11,11 @@ class Medium(Model):
     name = models.CharField(max_length=250,
                             verbose_name='Имя экстрасенса')
 
-    guess1 = models.IntegerField(default=0, verbose_name='Догадка1')
-    guess2 = models.IntegerField(default=0, verbose_name='Догадка2')
+    guess = models.IntegerField(default=0, verbose_name='Догадка')
     level = models.IntegerField(default=0, verbose_name='Уровень доверенности')
     created = models.DateTimeField(auto_now_add=True,
                                    verbose_name='Дата создания')
+
 
     class Meta:
         verbose_name = 'Догадка'
@@ -26,12 +26,3 @@ class Medium(Model):
         return self.name
 
 
-class History(Model):
-    """
-    Модель история
-    """
-    number = models.IntegerField(default=0, verbose_name='Пользовательское значение')
-
-    class Meta:
-        verbose_name = 'История'
-        db_table = 'history'

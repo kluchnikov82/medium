@@ -11,10 +11,10 @@
             </tr>
         </thead>
         <tbody>
-            {% for element in history %}
+            {% for number in numbers %}
                 <tr>
                     <td>
-                         {{ element.number }}
+                         {{ number }}
                     </td>
                 </tr>
             {% endfor %}
@@ -22,7 +22,21 @@
   </table>
 
 <h3>Текущее значение достоверности экстрасенса.</h3>
-{% for element in mediums %}
-{{ element.name }}
-{{ element.level }}
+{% for medium in mediums %}
+{{ medium.name }}:
+{{ medium.level }}
+<br><br>
+{% endfor %}
+
+<h3>История догадок экстрасенсов</h3>
+
+<h3>Экстрасенс №1:</h3>
+{% for guess in guess1 %}
+{{ guess }}
+{% endfor %}
+<br>
+<br>
+<h3>Экстрасенс №2:</h3>
+{% for guess in guess2 %}
+{{ guess }}
 {% endfor %}

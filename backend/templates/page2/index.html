@@ -4,30 +4,18 @@
 {% block content %}
 
 <h1>Догадки экстрасенсов:</h1>
-          <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Имя экстрасенса</th>
-                            <th>Догадка1</th>
-                            <th>Догадка2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for element in mediums %}
-                            <tr>
-                                <td>
-                                     {{ element.name }}
-                                </td>
-                                <td>
-                                     {{ element.guess1 }}
-                                </td>
-                                <td>
-                                     {{ element.guess2 }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-          </table>
+
+
+{{ 'Экстрасенс1:' }}
+{{ guess1 }}
+
+<br>
+
+{{ 'Экстрасенс2:' }}
+{{ guess2}}
+
+
+
 
 
 <br>
@@ -39,7 +27,7 @@
                             <div class="form-group">
                                 <div class="col-lg-4">
                                     <label>Введите загаданное число:</label>
-                                    <input type="text" name="number" class="form-control"
+                                    <input type="number" min="1" step="1" name="number" class="form-control"
                                         value="{{ number }}"
                                     >
                                 </div>
